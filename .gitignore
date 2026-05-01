@@ -19,7 +19,14 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Models (Ignore large binary files if you don't want them on GitHub)
-# *.pth
-# *.h5
-# *.bin
+# Models & Large Files
+*.pth
+*.h5
+*.bin
+*.exe
+*.zip
+*.docx
+*.pdf
+
+# Other Projects
+SE-Lab-Election-Commission-and-Political-Party/

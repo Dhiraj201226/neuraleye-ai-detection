@@ -345,6 +345,6 @@ async def chat_endpoint(req: ChatRequest):
 # Run the server using: uvicorn main:app --reload
 if __name__ == "__main__":
     import uvicorn
-    # Use the PORT environment variable if available, otherwise default to 8000
-    port = int(os.environ.get("PORT", 8000))
+    # Use the PORT environment variable if available, otherwise default to 7860 for HF Spaces
+    port = int(os.environ.get("PORT", 7860))
     uvicorn.run(app, host="0.0.0.0", port=port)
