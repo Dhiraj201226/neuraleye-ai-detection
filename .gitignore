@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+*.db
+*.sqlite3
+
+# Node.js
+node_modules/
+dist/
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models (Ignore large binary files if you don't want them on GitHub)
+# *.pth
+# *.h5
+# *.bin
