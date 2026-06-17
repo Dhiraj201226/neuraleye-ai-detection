@@ -119,7 +119,7 @@ class ChatRequest(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request=request, name="index.html")
 
 def is_allowed_file(filename: str, allowed_set: set):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_set
