@@ -31,8 +31,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Setup Templates (assuming your index.html is in 'templates' folder)
-templates = Jinja2Templates(directory="templates")
+# Setup Templates (removed)
 
 # =====================================================================
 # LOCAL HUGGING FACE MODEL SETUP (NO API KEY REQUIRED)
@@ -116,10 +115,12 @@ class ChatRequest(BaseModel):
 # =====================================================================
 # ROUTES
 # =====================================================================
+# Serve the static React build files
+app.mount("/assets", StaticFiles(directory="frontend/dist/assets"), name="assets")
 
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request):
-    return templates.TemplateResponse(request=request, name="index.html")
+@app.get("/{full_path:path}", response_class=HTMLResponse)
+async def serve_react_app(full_path: str):
+    return HTMLResponse(open("frontend/dist/index.html", "r", encoding="utf-8").read())
 
 def is_allowed_file(filename: str, allowed_set: set):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_set
